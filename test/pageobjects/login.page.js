@@ -1,4 +1,4 @@
-import Page from './page.js';
+const Page = require('./page.js');
 
 class LoginPage extends Page {
     get usernameInput () {return $('#user-name');}
@@ -38,4 +38,4 @@ class LoginPage extends Page {
     }
 }
 
-export default LoginPage;
+module.exports = LoginPage;

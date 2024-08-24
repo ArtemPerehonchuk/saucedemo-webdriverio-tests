@@ -1,4 +1,4 @@
-import Page from './page.js';
+const Page = require('./page.js');
 
 class InventoryPage extends Page {
     
@@ -23,16 +23,6 @@ class InventoryPage extends Page {
     get sauceLabsBikeLightRemoveBtn () {return $('#remove-sauce-labs-bike-light');}
     get cartIcon () {return $('.shopping_cart_link');}
     get cartIconValue () {return $('[data-test="shopping-cart-badge"]');}
- 
-
-    // async checkHomepageUrl(expectedUrl) {
-    //     await expect(browser).toHaveUrl(expectedUrl);
-    // }
-
-    // async selectItemFromSortDropDown (sortingValue) {
-    //     await this.productSortDropDown.click();
-    //     await sortingValue.click();
-    // }
 
     async checkProductsSorting() {
         const sortingValue = await this.productSortDropDown.getValue(); // Використовуйте getValue() для отримання значення
@@ -67,10 +57,6 @@ class InventoryPage extends Page {
         }
     }
 
-    // async scrollToSocialMediaIcons() {
-    //     await this.socialMediaLinksContainer.scrollIntoView();
-    // }
-
     async checkSocialMediaLinks(link) {
         if(link === 'https://x.com/saucelabs') {
             await this.twitterIcon.click();
@@ -86,14 +72,6 @@ class InventoryPage extends Page {
         await browser.switchWindow('/inventory.html');
     }
 
-    // async clickOnProduct(product) {
-    //     await product.click();
-    // }
-
-    // async clickOnAddToCartBtn(product) {
-    //     await product.click();
-    // }
-
     async checkCartIconValue(value) {
         await expect(await this.cartIconValue.getText()).toBe(value);
     }
@@ -102,15 +80,6 @@ class InventoryPage extends Page {
         await expect(await this.cartIconValue.isDisplayed()).toBe(false);
     }
 
-    // async clickOnRemoveBtn(product) {
-    //     await product.click();
-    // }
-
-    // async clickOnCartIcon() {
-    //     await this.cartIcon.click();
-    // }
-
-    
 }
 
-export default InventoryPage;
+module.exports = InventoryPage;

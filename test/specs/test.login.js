@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker';
-import LoginPage from '../pageobjects/login.page.js';
-import userData from '../helpers/userData.json' assert { type: 'json' };
+const faker = require('@faker-js/faker');
+const LoginPage = require('../pageobjects/login.page.js');
+const userData = require('../helpers/userData.json') //assert { type: 'json' };
 
 const inventoryPageUrl = 'https://www.saucedemo.com/inventory.html';
 

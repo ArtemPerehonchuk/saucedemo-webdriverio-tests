@@ -1,7 +1,7 @@
-import userData from '../helpers/userData.json' assert { type: 'json' };
-import CartPage from '../pageobjects/cart.page.js';
-import LoginPage from '../pageobjects/login.page.js';
-import InventoryPage from '../pageobjects/inventory.page.js';
+const userData = require('../helpers/userData.json') //assert { type: 'json' };
+const CartPage = require('../pageobjects/cart.page.js');
+const LoginPage = require('../pageobjects/login.page.js');
+const InventoryPage = require('../pageobjects/inventory.page.js');
 
 
 const cartPage = new CartPage();

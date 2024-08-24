@@ -1,6 +1,5 @@
 {
   "name": "saucedemo-webdriverio-tests",
-  "type": "module",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@wdio/allure-reporter": "^8.40.3",

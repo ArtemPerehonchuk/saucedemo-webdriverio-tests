@@ -1,4 +1,4 @@
-import Page from "./page.js";
+const Page = require("./page.js");
 
 class CheckoutCompletePage extends Page {
     get successCopmleteMessage () {return $('.complete-header');}
@@ -8,4 +8,4 @@ class CheckoutCompletePage extends Page {
     }
 }
 
-export default CheckoutCompletePage;
+module.exports = CheckoutCompletePage;

@@ -22,4 +22,4 @@ class Page {
 
 }
 
-export default Page;
+module.exports = Page;

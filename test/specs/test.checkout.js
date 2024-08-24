@@ -1,11 +1,11 @@
-import userData from '../helpers/userData.json' assert { type: 'json' };
-import InventoryPage from '../pageobjects/inventory.page.js';
-import LoginPage from '../pageobjects/login.page.js';
-import CartPage from '../pageobjects/cart.page.js';
-import CheckoutPage from '../pageobjects/checkout.page.js';
-import CheckoutConfirmPage from '../pageobjects/checkout.confirm.page.js';
-import CheckoutCompletePage from '../pageobjects/checkout.complete.page.js';
-import { faker } from '@faker-js/faker';
+const userData = require('../helpers/userData.json') //assert { type: 'json' };
+const InventoryPage = require('../pageobjects/inventory.page.js');
+const LoginPage = require('../pageobjects/login.page.js');
+const CartPage = require('../pageobjects/cart.page.js');
+const CheckoutPage = require('../pageobjects/checkout.page.js');
+const CheckoutConfirmPage = require('../pageobjects/checkout.confirm.page.js');
+const CheckoutCompletePage = require('../pageobjects/checkout.complete.page.js');
+const {faker} = require('@faker-js/faker');
 
 const inventoryPage = new InventoryPage();
 const loginPage = new LoginPage();

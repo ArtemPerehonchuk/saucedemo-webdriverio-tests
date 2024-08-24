@@ -1,6 +1,6 @@
-import allure from 'allure-commandline';
+const allure = require('allure-commandline');
 
-export const config = {
+exports.config = {
     runner: 'local',
     specs: ['./test/specs/**/*.js'],
     maxInstances: 10,
@@ -44,7 +44,6 @@ export const config = {
             console.log('Allure report has been generated with code: ' + code);
         });
     },
-    
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
             await browser.takeScreenshot();
