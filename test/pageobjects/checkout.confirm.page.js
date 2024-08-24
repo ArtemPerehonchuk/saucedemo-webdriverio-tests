@@ -1,7 +1,7 @@
-const Page = require("./page.js");
+import Page from "./page.js";
 
 class CheckoutConfirmPage extends Page {
     get finishBtn () {return $('#finish');}
 }
 
-module.exports = CheckoutConfirmPage;
+export default CheckoutConfirmPage;

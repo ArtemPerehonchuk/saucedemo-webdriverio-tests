@@ -1,4 +1,4 @@
-const Page = require("./page.js");
+import Page from "./page.js";
 
 class CartPage extends Page {
     get continueShoppingBtn () {return $('#continue-shopping');}
@@ -10,4 +10,4 @@ class CartPage extends Page {
     }
 }
 
-module.exports = CartPage;
+export default CartPage;

@@ -1,7 +1,7 @@
-const userData = require('../helpers/userData.json') //assert { type: 'json' };
-const InventoryPage = require('../pageobjects/inventory.page.js');
-const LoginPage = require('../pageobjects/login.page.js');
-const ProductPage = require('../pageobjects/product.page.js');
+import userData from '../helpers/userData.json' assert { type: 'json' };
+import InventoryPage from '../pageobjects/inventory.page.js';
+import LoginPage from '../pageobjects/login.page.js';
+import ProductPage from '../pageobjects/product.page.js'
 
 const loginPageUrl = 'https://www.saucedemo.com/';
 const twitterLink = 'https://x.com/saucelabs';

@@ -1,9 +1,9 @@
-const Page = require("./page.js");
+import Page from "./page.js";
 
 class CheckoutPage extends Page {
     get firstNameInput () {return $('#first-name');}
     get lastNameInput () {return $('#last-name');}
-    get postalCodeInput () {return $('#postal-code');}
+    get postakCodeInput () {return $('#postal-code');}
     get continueBtn () {return $('#continue');}
     get cancelBtn () {return $('#cancel');}
     get checkoutErrorMessage () {return $('[data-test="error"]');}
@@ -11,7 +11,7 @@ class CheckoutPage extends Page {
     async fillCheckoutForm (firstName, lastName, postalCode) {
         await this.firstNameInput.setValue(firstName);
         await this.lastNameInput.setValue(lastName);
-        await this.postalCodeInput.setValue(postalCode);
+        await this.postakCodeInput.setValue(postalCode);
     }
 
     async checkErrorMessage () {
@@ -34,4 +34,4 @@ class CheckoutPage extends Page {
     }
 }
 
-module.exports = CheckoutPage;
+export default CheckoutPage;

@@ -5,8 +5,8 @@ export const config = {
     specs: ['./test/specs/**/*.js'],
     maxInstances: 10,
     capabilities: [{
-        browserName: 'chrome',
-        'goog:chromeOptions': {
+        browserName: 'firefox',
+        'moz:firefoxOptions': {
             args: [
                 '--no-sandbox',
                 '--disable-infobars',

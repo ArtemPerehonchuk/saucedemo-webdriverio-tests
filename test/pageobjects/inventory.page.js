@@ -1,4 +1,4 @@
-const Page = require('./page.js');
+import Page from './page.js';
 
 class InventoryPage extends Page {
     
@@ -82,4 +82,4 @@ class InventoryPage extends Page {
 
 }
 
-module.exports = InventoryPage;
+export default InventoryPage;
