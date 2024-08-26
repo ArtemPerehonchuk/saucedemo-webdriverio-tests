@@ -35,6 +35,7 @@ export const config = {
         timeout: 180000
     },
     baseUrl: 'https://www.saucedemo.com/',
+    
     onPrepare: function (config, capabilities) {
         global.allure = allure;
     },

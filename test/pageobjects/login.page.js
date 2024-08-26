@@ -11,10 +11,6 @@ class LoginPage extends Page {
         await this.passwordInput.setValue(password);
     }
 
-    async clickOnLoginBtn() {
-        await this.loginBtn.click();
-    }
-
     async checkErrorMessage() {
         const browserName = browser.capabilities.browserName;
         console.log('BROWSER NAME IS: ', browserName)

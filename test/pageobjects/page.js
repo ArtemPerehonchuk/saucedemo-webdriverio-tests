@@ -10,6 +10,7 @@ class Page {
     async clickOnElement(element) {
         await element.waitForEnabled({timeot: 5000});
         await element.click();
+        await browser.pause(2000);
     }
 
     async scrollToElement(element) {
