@@ -20,7 +20,7 @@
     "test:checkout": "cross-env wdio run ./wdio.chrome.conf.js --spec ./test/specs/test.checkout.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js",
     "docker:build": "docker build -t saucedemo-webdriverio-tests .",
-    "docker:run": "docker run -it saucedemo-webdriverio-tests",
+    "docker:run": "docker run saucedemo-webdriverio-tests",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report"
   }
