@@ -15,3 +15,4 @@ RUN apt-get update && apt-get install -y wget gnupg \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 CMD ["npm", "run", "test:all:chrome"]
+
