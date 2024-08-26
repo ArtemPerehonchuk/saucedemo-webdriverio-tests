@@ -1,4 +1,4 @@
-name: CI
+name: Saucedemo-webdriverio-tests
 
 on:
   push:
@@ -26,6 +26,12 @@ jobs:
 
     - name: Generate Allure report
       run: npm run allure:generate
+
+    - name: Upload Allure Report as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: allure-report
 
     - name: Deploy to GitHub Pages
       env:
