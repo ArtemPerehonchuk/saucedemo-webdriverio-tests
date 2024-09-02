@@ -82,6 +82,23 @@ The report is available on GitHub Pages at the following link:
 ```bash
 https://artemperehonchuk.github.io/saucedemo-webdriverio-tests/
 ```
+## Docker:
+
+Docker is used in this project to ensure a consistent and isolated environment for running tests. 
+
+How to use Docker:
+
+1. Build the Docker image:
+```bash
+npm run docker:build
+```
+
+2. Run the Docker container:
+```bash
+npm run docker:run
+```
+
+This will execute tests within the container, providing a consistent and isolated test environment.
 
 ## Project Structure
 
