@@ -76,6 +76,13 @@ The Allure report will be available in the allure-report directory and can be op
 
 GitHub Actions is configured to run tests on every push and pull request to the main branch. The test results are uploaded as artifacts, and the Allure report is deployed to GitHub Pages.
 
+## GitHub Pages:
+
+The report is available on GitHub Pages at the following link:
+```bash
+https://artemperehonchuk.github.io/saucedemo-webdriverio-tests/
+```
+
 ## Project Structure
 
 - ./test/specs/: Contains all WebdriverIO test specifications.
