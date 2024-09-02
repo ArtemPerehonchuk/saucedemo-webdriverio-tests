@@ -45,7 +45,7 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    needs: build-and-deploy  # Назва попередньої роботи, яку потрібно завершити
+    needs: build-and-deploy
     steps:
       - name: Post a comment with a link to the report
         uses: actions/github-script@v6
@@ -53,25 +53,29 @@ jobs:
           script: |
             const reportUrl = `https://${{ github.repository_owner }}.github.io/${{ github.repository }}/`;
 
-            // Перевірка, чи є pull_request у payload
-            if (github.context.payload.pull_request) {
-              // Створення коментаря у pull request
-              github.rest.issues.createComment({
-                issue_number: github.context.payload.pull_request.number,
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
-                body: `✅ Tests completed! View the report [here](${reportUrl})`
-              });
-            } else if (github.context.eventName === 'push') {
-              // Створення коментаря на останньому коміті у випадку push
-              const commitSha = github.context.sha;
+            // Додаткова перевірка на наявність github.context та payload
+            if (github.context && github.context.payload) {
+              if (github.context.payload.pull_request) {
+                // Якщо є pull_request
+                github.rest.issues.createComment({
+                  issue_number: github.context.payload.pull_request.number,
+                  owner: github.context.repo.owner,
+                  repo: github.context.repo.repo,
+                  body: `✅ Tests completed! View the report [here](${reportUrl})`
+                });
+              } else if (github.context.eventName === 'push') {
+                // Якщо подія push
+                const commitSha = github.context.sha;
 
-              github.rest.repos.createCommitComment({
-                owner: github.context.repo.owner,
-                repo: github.context.repo.repo,
-                commit_sha: commitSha,
-                body: `✅ Tests completed! View the report [here](${reportUrl})`
-              });
+                github.rest.repos.createCommitComment({
+                  owner: github.context.repo.owner,
+                  repo: github.context.repo.repo,
+                  commit_sha: commitSha,
+                  body: `✅ Tests completed! View the report [here](${reportUrl})`
+                });
+              } else {
+                console.log('No suitable context for commenting.');
+              }
             } else {
-              console.log('No suitable context for commenting.');
+              console.log('Context or payload is undefined.');
             }
