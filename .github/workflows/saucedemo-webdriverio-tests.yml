@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - fix-mistakes
   pull_request:
     branches:
       - main
@@ -41,3 +42,19 @@ jobs:
       with:
         personal_token: ${{ secrets.GH_PAGES_TOKEN }}
         publish_dir: ./allure-report
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    steps:
+      - name: Post a comment with a link to the report
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const reportUrl = `https://${{ github.repository_owner }}.github.io/${{ github.repository }}/`;
+            github.rest.issues.createComment({
+              issue_number: github.context.payload.pull_request ? github.context.payload.pull_request.number : github.context.run_id,
+              owner: github.context.repo.owner,
+              repo: github.context.repo.repo,
+              body: `✅ Tests completed! View the report [here](${reportUrl})`
+            });
