@@ -52,18 +52,18 @@ jobs:
         with:
           script: |
             const reportUrl = `https://${{ github.repository_owner }}.github.io/${{ github.repository }}/`;
-            const pullRequest = github.context.payload.pull_request;
 
-            if (pullRequest) {
+            // Перевірка, чи є pull_request у payload
+            if (github.context.payload.pull_request) {
               // Створення коментаря у pull request
               github.rest.issues.createComment({
-                issue_number: pullRequest.number,
+                issue_number: github.context.payload.pull_request.number,
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
                 body: `✅ Tests completed! View the report [here](${reportUrl})`
               });
-            } else {
-              // Створення коментаря на останній коміт у випадку push
+            } else if (github.context.eventName === 'push') {
+              // Створення коментаря на останньому коміті у випадку push
               const commitSha = github.context.sha;
 
               github.rest.repos.createCommitComment({
@@ -72,4 +72,6 @@ jobs:
                 commit_sha: commitSha,
                 body: `✅ Tests completed! View the report [here](${reportUrl})`
               });
+            } else {
+              console.log('No suitable context for commenting.');
             }
