@@ -79,9 +79,8 @@ GitHub Actions is configured to run tests on every push and pull request to the 
 ## GitHub Pages:
 
 The report is available on GitHub Pages at the following link:
-```bash
 https://artemperehonchuk.github.io/saucedemo-webdriverio-tests/
-```
+
 ## Docker:
 
 Docker is used in this project to ensure a consistent and isolated environment for running tests. 
