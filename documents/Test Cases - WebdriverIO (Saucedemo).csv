@@ -1,0 +1,246 @@
+ID,Priority,Author,Date
+SD01,,Artem Perehonchuk,21.08.24
+Summary,Check login form with invalid password,,
+Pre-conditions,1. The web page https://www.saucedemo.com/ is opened in the browser.,,
+Steps,Action,Expected result,Test result
+1.,Enter 'standard_user' in the 'Username' input field,standard_user' is displayed in the input field.,Not run
+2.,Enter random password in the 'Password' input field.,Entered password is displayed in the 'Password' input field.,
+3.,Click on the 'Login' button.,Epic sadface: Username and password do not match any user in this service' error message is displayed. Input fields is highlighted in red.,
+Post conditions,1. Reload the web page,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD02,,Artem Perehonchuk,21.08.24
+Summary,Check login form with invalid username,,
+Pre-conditions,1. The web page https://www.saucedemo.com/ is opened in the browser.,,
+Steps,Action,Expected result,Test result
+1.,Enter random word in the 'Username' input field,Entered word is displayed in the input field.,Not run
+2.,Enter 'secret_sauce' in the 'Password' input field.,secret_sauce' is displayed in the 'Password' input field.,
+3.,Click on the 'Login' button.,Epic sadface: Username and password do not match any user in this service' error message is displayed. Input fields is highlighted in red.,
+Post conditions,1. Reload the web page,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD03,,Artem Perehonchuk,21.08.24
+Summary,Check login form with empty username input field.,,
+Pre-conditions,1. The web page https://www.saucedemo.com/ is opened in the browser.,,
+Steps,Action,Expected result,Test result
+1.,Enter 'secret_sauce' in the 'Password' input field.,secret_sauce' is displayed in the 'Password' input field.,Not run
+2.,Click on the 'Login' button.,Epic sadface: Username is required' error message is displayed. Input field is highlighted in red.,
+Post conditions,1. Reload the web page,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD04,,Artem Perehonchuk,21.08.24
+Summary,Check login form with empty password input field.,,
+Pre-conditions,1. The web page https://www.saucedemo.com/ is opened in the browser.,,
+Steps,Action,Expected result,Test result
+1.,Enter 'standard_user' in the 'Username' input field.,standard_user' is displayed in the input field.,Not run
+2.,Click on the 'Login' button.,Epic sadface: Password is required' error message is displayed. Input field is highlighted in red.,
+Post conditions,1. Reload the web page,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD05,,Artem Perehonchuk,21.08.24
+Summary,Login with valid credentials,,
+Pre-conditions,1. The web page https://www.saucedemo.com/ is opened in the browser.,,
+Steps,Action,Expected result,Test result
+1.,Enter 'standard_user' in the 'Username' input field.,standard_user' is displayed in the input field.,Not run
+2.,Enter 'secret_sauce' in the 'Password' input field.,secret_sauce' is displayed in the 'Password' input field.,
+3.,Click on the 'Login' button.,Inventory web page is opened in the browser,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD06,,Artem Perehonchuk,21.08.24
+Summary,Check logout.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the hamburger menu in the top left corner of the page,Hamburger menu is expanded,Not run
+2.,"Click on the ""Logout"" item.",Login page is opened in the browser.,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD07,,Artem Perehonchuk,21.08.24
+Summary,Check the sorting on the Inventory page.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the sorting drop-down in the top right corner of the page.,Drop-down is expanded.,Not run
+2.,Select 'Name (Z to A)' item from drop-down.,Products are sorted by name in (Z to A) order.,
+3.,Click on the sorting drop-down in the top right corner of the page.,Drop-down is expanded.,
+4. ,Select 'Price (low to high)' item from drop-down.,Products are sorted by price in ascending order.,
+5.,Click on the sorting drop-down in the top right corner of the page.,Drop-down is expanded.,
+6.,Select 'Price (high to low)' item from drop-down.,Products are sorted by price in descending order.,
+7.,Click on the sorting drop-down in the top right corner of the page.,Drop-down is expanded.,
+8.,Select 'Name (A to Z)' item from drop-down.,Products are sorted by name in (A to Z) order.,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD08,,Artem Perehonchuk,21.08.24
+Summary,Check social media links,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Scroll the page down to the social media icons.,Social media icons is displayed.,Not run
+2.,Click on the linkedin icon.,Sauce lab' linkedin page is opened in the new tab. ,
+Post conditions,1. Close the linkedin tab.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD09,,Artem Perehonchuk,21.08.24
+Summary,Open product description web page.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Sauce Labs Backpack' product item.,Product description page is opened in the browser.,Not run
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD10,,Artem Perehonchuk,21.08.24
+Summary,Add product to cart.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Add to cart' button in the 'Sauce Labs Backpack' product section.,"1 is displayed above the cart icon in the top right corner of the page.
+'Remove' button is displayed in the product section.",Not run
+Post conditions,1. Remove product from cart.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD11,,Artem Perehonchuk,21.08.24
+Summary,Remove product from the cart.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Add to cart' button in the 'Sauce Labs Backpack' product section.,"1 is displayed above the cart icon in the top right corner of the page.
+'Remove' button is displayed in the product section.",Not run
+2.,Click on the 'Remove' button in the product section.,Cart icon do not have any value.,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD12,,Artem Perehonchuk,21.08.24
+Summary,Check the option to continue shopping,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Add to cart' button in the 'Sauce Labs Backpack' product section.,"1 is displayed above the cart icon in the top right corner of the page.
+'Remove' button is displayed in the product section.",Not run
+2.,Click on the cart icon.,Cart page is opened in the browser. 'Sauce Labs Backpack' product is displayed in the products list.,
+3.,Click on the 'Continue Shopping' button.,Inventory page is opened in the browser.,
+4.,Add another product to the cart.,"2 is displayed above the cart icon in the top right corner of the page.
+'Remove' button is displayed in the added product section.",
+5.,Click on the cart icon.,Cart page is opened in the browser. Added product is displayed in the products list.,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD13,,Artem Perehonchuk,21.08.24
+Summary,Check valid checkout,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+3. One or more products are added to the cart.
+4. The user is on the cart page.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Checkout' button.,Checkout step one' page is opened in the browser. Checkout form is displayed.,Not run
+2.,Fill the form with valid credentials.,Filled values are displayed in the input fields.,
+3.,Click on the 'Continue' button.,Checkout step two' page is opened in the browser. Selected products are displayed in the products list.,
+4.,Click on the 'Finish' button.,Checkout complete' page is opened in the browser. 'Thank you for your order!' message is displayed.,
+Post conditions,1. Remove all products from the cart.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD14,,Artem Perehonchuk,21.08.24
+Summary,Check not continue checkout with empty input fields.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+3. One or more products are added to the cart.
+4. The user is on the cart page.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Checkout' button.,Checkout step one' page is opened in the browser. Checkout form is displayed.,Not run
+2.,Click on the 'Continue' button.,"""Error: First Name is required"" error message is displayed. Input fields are highleghted in red.",
+Post conditions,1. Remove all products from the cart.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD15,,Artem Perehonchuk,21.08.24
+Summary,Check cancel the checkout.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+3. One or more products are added to the cart.
+4. The user is on the cart page.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Checkout' button.,Checkout step one' page is opened in the browser. Checkout form is displayed.,Not run
+2.,"Click on the ""Cancel"" button. ",Inventory page is opened in the browser.,
+Post conditions,1. Remove all products from the cart.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD16,,Artem Perehonchuk,21.08.24
+Summary,Check not checkout with empty cart,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+3. The user is on the cart page.",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Checkout' button.,Empty cart error message is displayed.,Not run
+Post conditions,,,
+Comments,This test case failed due to the bug in the web site,,
+,,,
+ID,Priority,Author,Date
+SD17,,Artem Perehonchuk,21.08.24
+Summary,"Proceed to the ""Saucelab"" web site.",,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+",,
+Steps,Action,Expected result,Test result
+1.,Click on the hamburger menu in the top left corner of the page,Hamburger menu is expanded,Not run
+2.,"Click on the ""About"" item. ","""Saucelab"" web site is opened in the browser.",
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD18,,Artem Perehonchuk,21.08.24
+Summary,Check the option to back to inventory page,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+",,
+Steps,Action,Expected result,Test result
+1.,Click on the 'Sauce Labs Backpack' product item.,Product description page is opened in the browser.,Not run
+2.,"Click on the ""Back to products"" link",Inventory page is opened in the browser.,
+Post conditions,,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD19,,Artem Perehonchuk,21.08.24
+Summary,Check saving the cart after logout.,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+3. One or more products are added to the cart.
+",,
+Test data,"Username: ""standard_user""
+Password: ""secret_sauce""",,
+Steps,Action,Expected result,Test result
+1.,Click on the hamburger menu in the top left corner of the page,Hamburger menu is expanded,Not run
+2.,"Click on the ""Logout"" item.",Login page is opened in the browser,
+3.,Log in with valid credentials,Inventory page is opened in the browser.,
+4.,Click on the cart icon.,Cart page is opened in the browser. Selected products are displayed in the products list.,
+Post conditions,1. Remove all products from the cart.,,
+Comments,,,
+,,,
+ID,Priority,Author,Date
+SD20,,Artem Perehonchuk,21.08.24
+Summary,Check returning to all items,,
+Pre-conditions,"1. The web page https://www.saucedemo.com/ is opened in the browser.
+2. The user is logged in.
+",,
+Steps,Action,Expected result,Test result
+1.,Click on the cart icon.,Cart page is opened in the browser. ,Not run
+2.,Click on the hamburger menu in the top left corner of the page,Hamburger menu is expanded,
+3.,"Click on the ""All items"" item.",Inventory page is opened in the browser,
+Post conditions,,,
+Comments,,,
