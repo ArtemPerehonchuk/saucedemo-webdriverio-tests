@@ -12,55 +12,55 @@ describe('Test cart page', () => {
     beforeEach(async () => {
         await cartPage.navigate('/');
         await loginPage.fillInputs(userData.username, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
     });
 
     it('Test case SD10: Should add product to cart.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackAddToCartBtn);
+        await inventoryPage.clickOnSauceLabsBackpackAddToCartBtn();
         await inventoryPage.checkCartIconValue('1');
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await inventoryPage.clickOnSauceLabsBackpackRemoveBtn();
     });
 
     it('Test case SD11: Should remove product from the cart.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackAddToCartBtn);
+        await inventoryPage.clickOnSauceLabsBackpackAddToCartBtn();
         await inventoryPage.checkCartIconValue('1');
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await inventoryPage.clickOnSauceLabsBackpackRemoveBtn();
         await inventoryPage.checkEmptyCartIconValue();
     });
 
     it('Test case SD12: Should check the option to continue shopping', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackAddToCartBtn);
+        await inventoryPage.clickOnSauceLabsBackpackAddToCartBtn();
         await inventoryPage.checkCartIconValue('1');
         
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
-        await cartPage.checkElementIsDisplayed(inventoryPage.sauceLabsBackpackProduct);
+        await inventoryPage.clickOnCartIcon();
+        await cartPage.checkSauceLabsBackpackProductIsDisplayed();
         
-        await cartPage.clickOnElement(cartPage.continueShoppingBtn);
+        await cartPage.clickOnContinueShoppingBtn();
         
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBikeLightAddToCartBtn);
+        await inventoryPage.clickOnSauceLabsBikeLightAddToCartBtn();
         await inventoryPage.checkCartIconValue('2');
         
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
-        await cartPage.checkElementIsDisplayed(inventoryPage.sauceLabsBikeLightProduct);
+        await inventoryPage.clickOnCartIcon();
+        await cartPage.checkSauceLabsBikeLightProductIsDisplayed();
         
-        await cartPage.clickOnElement(inventoryPage.sauceLabsBikeLightRemoveBtn);
-        await cartPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await cartPage.clickOnSauceLabsBackpackRemoveBtn();
+        await cartPage.clickOnSauceLabsBikeLightRemoveBtn();
     });
 
     it('Test case SD19: Should Check saving the cart after logout.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackAddToCartBtn);
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
+        await inventoryPage.clickOnSauceLabsBackpackAddToCartBtn();
+        await inventoryPage.clickOnCartIcon();
 
-        await cartPage.checkElementIsDisplayed(inventoryPage.sauceLabsBackpackProduct);
+        await cartPage.checkSauceLabsBackpackProductIsDisplayed();
 
-        await cartPage.clickOnElement(inventoryPage.hamburgerMenu);
-        await cartPage.clickOnElement(inventoryPage.logoutItem);
+        await inventoryPage.clickOnHamburgerMenu();
+        await inventoryPage.clickOnHamburgerMenuItem('Logout');
         await loginPage.fillInputs(userData.username, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
+        await loginPage.clickOnLoginBtn();
+        await inventoryPage.clickOnCartIcon();
         
-        await cartPage.checkElementIsDisplayed(inventoryPage.sauceLabsBackpackProduct);
+        await cartPage.checkSauceLabsBackpackProductIsDisplayed();
 
-        await cartPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await cartPage.clickOnSauceLabsBackpackRemoveBtn();
     });
 })

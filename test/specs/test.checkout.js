@@ -26,10 +26,10 @@ describe('Test checkout page', () => {
     beforeEach(async () => {
         await loginPage.navigate('/');
         await loginPage.fillInputs(userData.username, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         await browser.pause(2000);
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackAddToCartBtn);
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
+        await inventoryPage.clickOnSauceLabsBackpackAddToCartBtn();
+        await inventoryPage.clickOnCartIcon();
     });
 
     it('Test case SD13: Should check valid checkout', async () => {
@@ -37,42 +37,42 @@ describe('Test checkout page', () => {
         randomLastName = faker.person.lastName();
         randomPostalCode = faker.number.int({min: 1000, max: 99999});
 
-        await cartPage.clickOnElement(cartPage.checkoutBtn);
+        await cartPage.clickOnCheckoutBtn();
         await checkoutPage.fillCheckoutForm(randomFirstName, randomLastName, randomPostalCode);
-        await checkoutPage.clickOnElement(checkoutPage.continueBtn);
+        await checkoutPage.clickOnContinueBtn();
 
         await checkoutConfirmPage.checkBrowserUrl(checkoutConfirmPageUrl);
-        await checkoutConfirmPage.checkElementIsDisplayed(inventoryPage.sauceLabsBackpackProduct);
+        await checkoutConfirmPage.checkSauceLabsBackpackProductIsDisplayed();
 
-        await checkoutConfirmPage.clickOnElement(checkoutConfirmPage.finishBtn);
+        await checkoutConfirmPage.clickOnFinishBtn();
 
         await checkoutCompletePage.checkBrowserUrl(checkoutCompletePageUrl);
         await checkoutCompletePage.checkSuccessCopleteMessage();
     });
 
     it('Test case SD14: Should check not continue checkout with empty input fields.', async () => {
-        await cartPage.clickOnElement(cartPage.checkoutBtn);
-        await checkoutPage.clickOnElement(checkoutPage.continueBtn);
+        await cartPage.clickOnCheckoutBtn();
+        await checkoutPage.clickOnContinueBtn();
         
         await checkoutPage.checkErrorMessage();
 
-        await checkoutPage.clickOnElement(checkoutPage.cancelBtn);
-        await cartPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await checkoutPage.clickOnCancelBtn();
+        await cartPage.clickOnSauceLabsBackpackRemoveBtn();
     });
 
     it('Test case SD15: Should check cancel the checkout.', async () => {
-        await cartPage.clickOnElement(cartPage.checkoutBtn);
-        await checkoutPage.clickOnElement(checkoutPage.cancelBtn);
+        await cartPage.clickOnCheckoutBtn();
+        await checkoutPage.clickOnCancelBtn();
         
         await inventoryPage.checkBrowserUrl(cartPageUrl);
         
-        await cartPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
+        await cartPage.clickOnSauceLabsBackpackRemoveBtn();
     });
 
     it('Test case SD16: Should check not checkout with empty cart', async () => {
         try {
-            await cartPage.clickOnElement(inventoryPage.sauceLabsBackpackRemoveBtn);
-            await cartPage.clickOnElement(cartPage.checkoutBtn);
+            await cartPage.clickOnSauceLabsBackpackRemoveBtn();
+            await cartPage.clickOnCheckoutBtn();
             
             await cartPage.checkEmptyCartErrorMessage();
         } catch(error) {

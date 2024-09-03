@@ -24,6 +24,37 @@ class InventoryPage extends Page {
     get cartIcon () {return $('.shopping_cart_link');}
     get cartIconValue () {return $('[data-test="shopping-cart-badge"]');}
 
+    async clickOnHamburgerMenu() {
+        await this.hamburgerMenu.click();
+        await browser.pause(1000);
+    }
+
+    async clickOnHamburgerMenuItem(item) {
+        if(item === 'Logout') {
+            await this.logoutItem.click();
+        } else if(item === 'About') {
+            await this.aboutItem.click();
+        } else if(item === 'All Items') {
+            await this.allItemsItem.click();
+        }
+    }
+
+    async clickOnProductSortDropDown() {
+        await this.productSortDropDown.click();
+    }
+
+    async clickOnProductSortDropDownItem(item) {
+        if(item === 'nameAZ') {
+            await this.nameAZ.click();
+        } else if(item === 'nameZA') {
+            await this.nameZA.click();
+        } else if(item === 'priceLow') {
+            await this.priceLow.click();
+        } else if(item === 'priceHigh') {
+            await this.priceHigh.click();
+        }
+    }
+
     async checkProductsSorting() {
         const sortingValue = await this.productSortDropDown.getValue(); // Використовуйте getValue() для отримання значення
 
@@ -57,6 +88,35 @@ class InventoryPage extends Page {
         }
     }
 
+    async clickOnSauceLabsBackpackAddToCartBtn() {
+        await this.sauceLabsBackpackAddToCartBtn.click();
+    }
+
+    async clickOnSauceLabsBikeLightAddToCartBtn() {
+        await this.sauceLabsBikeLightAddToCartBtn.click();
+    }
+
+    async clickOnSauceLabsBackpackRemoveBtn() {
+        await this.sauceLabsBackpackRemoveBtn.click();
+    }
+
+    async scrollToSocialMediaLinksContainer() {
+        await this.socialMediaLinksContainer.scrollIntoView();
+    }
+
+    async clickOnSocialMediaIcon(icon) {
+        if(icon === 'twitter') {
+            await this.twitterIcon.click();
+            await browser.pause(2000);
+        } else if(icon === 'facebook') {
+            await this.facebookIcon.click();
+            await browser.pause(2000);
+        } else if(icon === 'linkedin') {
+            await this.linkedinIcon.click();
+            await browser.pause(2000);
+        } 
+    }
+
     async checkSocialMediaLinks(link) {
         if(link === 'https://x.com/saucelabs') {
             await this.twitterIcon.click();
@@ -72,6 +132,18 @@ class InventoryPage extends Page {
         await browser.switchWindow('/inventory.html');
     }
 
+    async clickOnSauceLabsBackpackProduct() {
+        await this.sauceLabsBackpackProduct.click();
+    }
+
+    async clickOnSauceLabsBikeLightProduct() {
+        await this.sauceLabsBikeLightProduct.click();
+    }
+
+    async clickOnCartIcon() {
+        await this.cartIcon.click();
+    }
+
     async checkCartIconValue(value) {
         await expect(await this.cartIconValue.getText()).toBe(value);
     }
@@ -79,7 +151,6 @@ class InventoryPage extends Page {
     async checkEmptyCartIconValue() {
         await expect(await this.cartIconValue.isDisplayed()).toBe(false);
     }
-
 }
 
 export default InventoryPage;

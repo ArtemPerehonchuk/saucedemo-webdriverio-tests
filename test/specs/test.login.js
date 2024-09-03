@@ -18,7 +18,7 @@ describe('Test login page', () => {
         randomPassword = faker.internet.password();
 
         await loginPage.fillInputs(userData.username, randomPassword);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         
         await loginPage.checkErrorMessage();
     });
@@ -27,28 +27,28 @@ describe('Test login page', () => {
         randomUsername = faker.person.firstName();
 
         await loginPage.fillInputs(randomUsername, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         
         await loginPage.checkErrorMessage();
     });
 
     it('Test case SD03: Should check login form with empty username input field.', async () => {
         await loginPage.fillInputs('', userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         
         await loginPage.checkErrorMessage();
     });
 
     it('Test case SD04: Should check login form with empty password input field.', async () => {
         await loginPage.fillInputs(userData.username, '');
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         
         await loginPage.checkErrorMessage();
     });
 
     it('Test case SD05: Should login with valid credentials', async () => {
         await loginPage.fillInputs(userData.username, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
         
         await loginPage.checkBrowserUrl(inventoryPageUrl);
     });

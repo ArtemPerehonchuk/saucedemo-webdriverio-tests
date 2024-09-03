@@ -20,73 +20,73 @@ describe('Test inventory page', () => {
     beforeEach(async () => {
         await loginPage.navigate('/');
         await loginPage.fillInputs(userData.username, userData.password);
-        await loginPage.clickOnElement(loginPage.loginBtn);
+        await loginPage.clickOnLoginBtn();
     });
 
     it('Test case SD06: Should logout', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.hamburgerMenu);
-        await inventoryPage.clickOnElement(inventoryPage.logoutItem);
+        await inventoryPage.clickOnHamburgerMenu()
+        await inventoryPage.clickOnHamburgerMenuItem('Logout');
         
         await loginPage.checkBrowserUrl(loginPageUrl);
     });
 
     it('Test case SD07: Should check the sorting on the Inventory page.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.productSortDropDown);
-        await inventoryPage.clickOnElement(inventoryPage.nameZA);
+        await inventoryPage.clickOnProductSortDropDown();
+        await inventoryPage.clickOnProductSortDropDownItem('nameZA');
         await inventoryPage.checkProductsSorting();
 
-        await inventoryPage.clickOnElement(inventoryPage.productSortDropDown);
-        await inventoryPage.clickOnElement(inventoryPage.priceHigh);
+        await inventoryPage.clickOnProductSortDropDown();
+        await inventoryPage.clickOnProductSortDropDownItem('priceLow');
         await inventoryPage.checkProductsSorting();
 
-        await inventoryPage.clickOnElement(inventoryPage.productSortDropDown);
-        await inventoryPage.clickOnElement(inventoryPage.priceLow);
+        await inventoryPage.clickOnProductSortDropDown();
+        await inventoryPage.clickOnProductSortDropDownItem('priceHigh');
         await inventoryPage.checkProductsSorting();
 
-        await inventoryPage.clickOnElement(inventoryPage.productSortDropDown);
-        await inventoryPage.clickOnElement(inventoryPage.nameAZ);
+        await inventoryPage.clickOnProductSortDropDown();
+        await inventoryPage.clickOnProductSortDropDownItem('nameAZ');
         await inventoryPage.checkProductsSorting();
     });
 
     it('Test case SD08: Should check social media links', async () => {
-        await inventoryPage.scrollToElement(inventoryPage.socialMediaLinksContainer);
-        await inventoryPage.clickOnElement(inventoryPage.twitterIcon);
+        await inventoryPage.scrollToSocialMediaLinksContainer();
+        await inventoryPage.clickOnSocialMediaIcon('twitter');
         await inventoryPage.checkSocialMediaLinks(twitterLink);
 
-        await inventoryPage.clickOnElement(inventoryPage.facebookIcon);
+        await inventoryPage.clickOnSocialMediaIcon('facebook');
         await inventoryPage.checkSocialMediaLinks(facebookLink);
 
-        await inventoryPage.clickOnElement(inventoryPage.linkedinIcon);
+        await inventoryPage.clickOnSocialMediaIcon('linkedin');
         await inventoryPage.checkSocialMediaLinks(linkedinLink);
     });
 
     it('Test case SD09: Should open product description web page.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackProduct);
+        await inventoryPage.clickOnSauceLabsBackpackProduct();
         
         await inventoryPage.checkBrowserUrl(productDescriptionUrl);
     });
 
     it('Test case SD17: Should proceed to the "Saucelab" web site.', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.hamburgerMenu);
-        await inventoryPage.clickOnElement(inventoryPage.aboutItem);
+        await inventoryPage.clickOnHamburgerMenu();
+        await inventoryPage.clickOnHamburgerMenuItem('About');
         
         await inventoryPage.checkBrowserUrl(saucelabsUrl);
     });
 
     it('Test case SD18: Should check the option to back to inventory page', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.sauceLabsBackpackProduct);
-        await productPage.clickOnElement(productPage.backToProductsBtn);
+        await inventoryPage.clickOnSauceLabsBackpackProduct();
+        await productPage.clickOnBackToProductsBtn();
         
         await inventoryPage.checkBrowserUrl(inventoryPageUrl);
     });
 
     it('Test case SD20: Should check returning to all items', async () => {
-        await inventoryPage.clickOnElement(inventoryPage.cartIcon);
+        await inventoryPage.clickOnCartIcon();
 
         await inventoryPage.checkBrowserUrl(cartPageUrl);
 
-        await inventoryPage.clickOnElement(inventoryPage.hamburgerMenu);
-        await inventoryPage.clickOnElement(inventoryPage.allItemsItem);
+        await inventoryPage.clickOnHamburgerMenu();
+        await inventoryPage.clickOnHamburgerMenuItem('All Items');
 
         await inventoryPage.checkBrowserUrl(inventoryPageUrl);
     });

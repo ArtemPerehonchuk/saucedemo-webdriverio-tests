@@ -14,6 +14,14 @@ class CheckoutPage extends Page {
         await this.postakCodeInput.setValue(postalCode);
     }
 
+    async clickOnContinueBtn() {
+        await this.continueBtn.click();
+    }
+
+    async clickOnCancelBtn() {
+        await this.cancelBtn.click();
+    }
+
     async checkErrorMessage () {
         await expect(await this.checkoutErrorMessage.isDisplayed()).toBe(true);
         await expect(this.checkoutErrorMessage).toHaveTextContaining('Error:');
