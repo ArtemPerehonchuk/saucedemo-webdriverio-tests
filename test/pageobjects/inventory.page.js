@@ -1,5 +1,9 @@
 import Page from './page.js';
 
+const twitterLink = 'https://x.com/saucelabs';
+const facebookLink = 'https://www.facebook.com/saucelabs';
+const linkedinLink = 'https://www.linkedin.com/company/sauce-labs/';
+
 class InventoryPage extends Page {
     
     get hamburgerMenu () {return $('#react-burger-menu-btn');}
@@ -30,13 +34,13 @@ class InventoryPage extends Page {
     }
 
     async clickOnHamburgerMenuItem(item) {
-        if(item === 'Logout') {
-            await this.logoutItem.click();
-        } else if(item === 'About') {
-            await this.aboutItem.click();
-        } else if(item === 'All Items') {
-            await this.allItemsItem.click();
+        const selectHamburgerMenuItem = {
+            Logout: async () => await this.logoutItem.click(),
+            AllItems: async () => await this.allItemsItem.click(),
+            About: async () => await this.aboutItem.click(),
         }
+
+        await selectHamburgerMenuItem[item]();
     }
 
     async clickOnProductSortDropDown() {
@@ -44,15 +48,13 @@ class InventoryPage extends Page {
     }
 
     async clickOnProductSortDropDownItem(item) {
-        if(item === 'nameAZ') {
-            await this.nameAZ.click();
-        } else if(item === 'nameZA') {
-            await this.nameZA.click();
-        } else if(item === 'priceLow') {
-            await this.priceLow.click();
-        } else if(item === 'priceHigh') {
-            await this.priceHigh.click();
+        const sortOptions = {
+            nameAZ: async () => await this.nameAZ.click(),
+            nameZA: async () => await this.nameZA.click(),
+            priceLow: async () => await this.priceLow.click(),
+            priceHigh: async () => await this.priceHigh.click()
         }
+        await sortOptions[item]();
     }
 
     async checkProductsSorting() {
@@ -73,19 +75,26 @@ class InventoryPage extends Page {
             productPrices.push(price);
         }
     
-        if (sortingValue === 'az') {
-            const sortedProductNames = [...productNames].sort((a, b) => a.localeCompare(b));
-            expect(productNames).toEqual(sortedProductNames);
-        } else if (sortingValue === 'za') {
-            const sortedProductNames = [...productNames].sort((a, b) => b.localeCompare(a));
-            expect(productNames).toEqual(sortedProductNames);
-        } else if (sortingValue === 'lohi') {
-            const sortedProductPrices = [...productPrices].sort((a, b) => a - b);
-            expect(productPrices).toEqual(sortedProductPrices);
-        } else if (sortingValue === 'hilo') {
-            const sortedProductPrices = [...productPrices].sort((a, b) => b - a);
-            expect(productPrices).toEqual(sortedProductPrices);
-        }
+        const sortActions = {
+            az: () => {
+                const sortedProductNames = [...productNames].sort((a, b) => a.localeCompare(b));
+                expect(productNames).toEqual(sortedProductNames);
+            },
+            za: () => {
+                const sortedProductNames = [...productNames].sort((a, b) => b.localeCompare(a));
+                expect(productNames).toEqual(sortedProductNames);
+            },
+            lohi: () => {
+                const sortedProductPrices = [...productPrices].sort((a, b) => a - b);
+                expect(productPrices).toEqual(sortedProductPrices);
+            },
+            hilo: () => {
+                const sortedProductPrices = [...productPrices].sort((a, b) => b - a);
+                expect(productPrices).toEqual(sortedProductPrices);
+            }
+        };
+        
+        await sortActions[sortingValue]();   
     }
 
     async clickOnSauceLabsBackpackAddToCartBtn() {
@@ -105,26 +114,44 @@ class InventoryPage extends Page {
     }
 
     async clickOnSocialMediaIcon(icon) {
-        if(icon === 'twitter') {
-            await this.twitterIcon.click();
-            await browser.pause(2000);
-        } else if(icon === 'facebook') {
-            await this.facebookIcon.click();
-            await browser.pause(2000);
-        } else if(icon === 'linkedin') {
-            await this.linkedinIcon.click();
-            await browser.pause(2000);
-        } 
+
+        const selectSocialMediaIcon = {
+            twitter: async () => {
+                await this.twitterIcon.click();
+                await browser.pause(2000);
+            },
+            facebook: async () => {
+                await this.facebookIcon.click();
+                await browser.pause(2000);
+            },
+            linkedin: async () => {
+                await this.linkedinIcon.click();
+                await browser.pause(2000);
+            },
+        }
+
+        await selectSocialMediaIcon[icon]();
     }
 
     async checkSocialMediaLinks(link) {
-        if(link === 'https://x.com/saucelabs') {
-            await this.twitterIcon.click();
-        } else if(link === 'https://www.facebook.com/saucelabs') {
-            await this.facebookIcon.click();
-        } else if (link === 'https://www.linkedin.com/company/sauce-labs/') {
-            await this.linkedinIcon.click();
+
+        const selectSocialMediaLink = {
+            [twitterLink]: async () => {
+                await this.twitterIcon.click();
+                await browser.pause(1000);
+            },
+            [facebookLink]: async () => {
+                await this.facebookIcon.click();
+                await browser.pause(1000);
+            },
+            [linkedinLink]: async () => {
+                await this.linkedinIcon.click();
+                await browser.pause(1000);
+            }
         }
+
+        await selectSocialMediaLink[link]();
+        
         await browser.pause(2000);
         await browser.switchWindow(link)
         await expect(browser).toHaveUrlContaining(link);

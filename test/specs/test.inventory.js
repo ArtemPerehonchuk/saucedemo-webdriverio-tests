@@ -86,7 +86,7 @@ describe('Test inventory page', () => {
         await inventoryPage.checkBrowserUrl(cartPageUrl);
 
         await inventoryPage.clickOnHamburgerMenu();
-        await inventoryPage.clickOnHamburgerMenuItem('All Items');
+        await inventoryPage.clickOnHamburgerMenuItem('AllItems');
 
         await inventoryPage.checkBrowserUrl(inventoryPageUrl);
     });
